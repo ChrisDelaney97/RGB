@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://pigjvef5be4h"]
+
+[ext_resource type="Script" uid="uid://du8qa7orb15p3" path="res://Scripts/hud.gd" id="1_vsu76"]
+[ext_resource type="Texture2D" uid="uid://uhhq546gn4mi" path="res://Art/80s_style/Logo/logo cropped 1.png" id="2_ny26j"]
+
+[sub_resource type="SystemFont" id="SystemFont_ny26j"]
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ny26j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdl0h"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1334937889]
+script = ExtResource("1_vsu76")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2099965602]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 40.0
+offset_right = -53.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreContainer" type="VBoxContainer" parent="MarginContainer" unique_id=734989581]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Score" type="Label" parent="MarginContainer/ScoreContainer" unique_id=1440257114]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("SystemFont_ny26j")
+theme_override_font_sizes/font_size = 30
+text = "SCORE:"
+vertical_alignment = 1
+
+[node name="Coins" type="Label" parent="MarginContainer/ScoreContainer" unique_id=1860876742]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 25
+text = "COINS:"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1002901134]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=652455687]
+z_index = 10
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_ny26j")
+
+[node name="Start" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2052215946]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "PRESS SPACE TO PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1250369459]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 20
+text = "A/S/D - Change colours
+Space/Up Arrow - Jump
+Shift/Down Arrow - Slide"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColourButtons" type="HBoxContainer" parent="MarginContainer" unique_id=2098855887]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PrimaryButton" type="ColorRect" parent="MarginContainer/ColourButtons" unique_id=1840022262]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="A" type="Label" parent="MarginContainer/ColourButtons/PrimaryButton" unique_id=935072188]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -27.5
+offset_right = 13.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/ColourButtons" unique_id=146475512]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ny26j")
+
+[node name="SecondaryButton" type="ColorRect" parent="MarginContainer/ColourButtons" unique_id=1933838100]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="S" type="Label" parent="MarginContainer/ColourButtons/SecondaryButton" unique_id=1101922738]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -27.5
+offset_right = 13.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/ColourButtons" unique_id=873001788]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fdl0h")
+
+[node name="TertiaryButton" type="ColorRect" parent="MarginContainer/ColourButtons" unique_id=916279201]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="D" type="Label" parent="MarginContainer/ColourButtons/TertiaryButton" unique_id=1707649692]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -27.5
+offset_right = 14.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopButton" type="Button" parent="MarginContainer" unique_id=999594999]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "SHOP"
+
+[node name="HighScore" type="Label" parent="MarginContainer" unique_id=1119195376]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE:"
+vertical_alignment = 1
+
+[node name="TotalCoins" type="Label" parent="MarginContainer" unique_id=1327489916]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "TOTAL COINS:"
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/ShopButton" to="." method="_on_shop_button_pressed"]

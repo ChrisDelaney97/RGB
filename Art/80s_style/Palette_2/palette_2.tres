@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Palette" format=3 uid="uid://c37w5mapjp67i"]
+
+[ext_resource type="Texture2D" uid="uid://pvqg5l244s83" path="res://Art/80s_style/Palette_2/bg_2.png" id="1_fy2g1"]
+[ext_resource type="Texture2D" uid="uid://blmyxabykym2i" path="res://Art/80s_style/Palette_2/floor_2.png" id="2_6w8nq"]
+[ext_resource type="Script" uid="uid://d4jn0cfr16lkx" path="res://Scripts/palette_resource.gd" id="3_wouo2"]
+
+[resource]
+script = ExtResource("3_wouo2")
+primary = Color(0.4627451, 0, 0.05490196, 1)
+secondary = Color(0.9882353, 0.44705883, 0, 1)
+tertiary = Color(0.972549, 0.85490197, 0.039215688, 1)
+floor_texture = ExtResource("2_6w8nq")
+bg_texture = ExtResource("1_fy2g1")
+palette_index = 2

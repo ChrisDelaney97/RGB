@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqr51c2ftmmv6"]
+
+[ext_resource type="Texture2D" uid="uid://8hbb6x8c7hxa" path="res://Art/obst_high.png" id="1_ej7yg"]
+[ext_resource type="Script" uid="uid://bx16y6ht8mw8w" path="res://Scripts/obst_high.gd" id="1_utjqn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qtadr"]
+radius = 29.7658
+
+[node name="obst_high" type="Area2D" unique_id=464100090]
+script = ExtResource("1_utjqn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=527942008]
+texture = ExtResource("1_ej7yg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=445916489]
+position = Vector2(3, 1)
+scale = Vector2(1.515, 1.035)
+shape = SubResource("CircleShape2D_qtadr")

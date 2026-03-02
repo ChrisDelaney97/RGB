@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://r1trpjrm4dft"]
+
+[ext_resource type="Texture2D" uid="uid://3cem28wjqj4n" path="res://Art/obst_green.png" id="1_uundv"]
+
+[node name="obst_blank" type="Node2D" unique_id=884365288]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1335593278]
+visible = false
+z_index = 50
+texture_filter = 1
+rotation = 1.5707963
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("1_uundv")
+centered = false

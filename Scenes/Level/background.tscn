@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cghi0y3asjbqq"]
+
+[ext_resource type="Script" uid="uid://gjw504gtr1nb" path="res://Scripts/background.gd" id="1_k257l"]
+
+[node name="background" type="ParallaxBackground" unique_id=977524568]
+script = ExtResource("1_k257l")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=1930638988]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer" unique_id=2137869962]
+modulate = Color(1, 1, 1, 0.39215687)
+centered = false
