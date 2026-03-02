@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://doyx5ysfo0gbc"]
+
+[ext_resource type="Script" uid="uid://bnt62a5m6odwm" path="res://Scripts/main.gd" id="1_je8cj"]
+[ext_resource type="Shader" uid="uid://o4sy83p8ikv1" path="res://Art/Shaders/crt.gdshader" id="2_yuoqr"]
+[ext_resource type="PackedScene" uid="uid://pigjvef5be4h" path="res://Scenes/UI/hud.tscn" id="3_upvvg"]
+[ext_resource type="PackedScene" uid="uid://dmbmc0xdwanor" path="res://Scenes/UI/game_over.tscn" id="4_dw4x0"]
+[ext_resource type="PackedScene" uid="uid://cghi0y3asjbqq" path="res://Scenes/Level/background.tscn" id="5_xufhq"]
+[ext_resource type="PackedScene" uid="uid://bhaixsb3dm1x0" path="res://Scenes/Level/ground.tscn" id="6_pp4cp"]
+[ext_resource type="PackedScene" uid="uid://d3irlje6g7jjb" path="res://Scenes/player.tscn" id="7_fqecq"]
+[ext_resource type="AudioStream" uid="uid://bmafyashanhgk" path="res://Audio/Static.wav" id="8_wdwou"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bp64"]
+shader = ExtResource("2_yuoqr")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.10000000475
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.2
+shader_parameter/resolution = Vector2(854, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.937
+shader_parameter/roll_size = 9.001
+shader_parameter/roll_variation = 1.134
+shader_parameter/distort_intensity = 0.01
+shader_parameter/noise_opacity = 0.144
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.01500004821249989
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.416
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.5
+shader_parameter/vignette_opacity = 0.50000002375
+
+[node name="Main" type="Node" unique_id=1379879589]
+script = ExtResource("1_je8cj")
+
+[node name="CRT" type="CanvasLayer" parent="." unique_id=163678828]
+layer = 3
+visible = false
+
+[node name="CRT" type="ColorRect" parent="CRT" unique_id=932920816]
+z_index = 4
+material = SubResource("ShaderMaterial_6bp64")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRGB" type="CanvasLayer" parent="." unique_id=1728559013]
+
+[node name="ColorRGB" type="ColorRect" parent="ColorRGB" unique_id=1323982127]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.15686275)
+z_index = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" parent="." unique_id=1443094777 instance=ExtResource("3_upvvg")]
+unique_name_in_owner = true
+
+[node name="gameover" parent="." unique_id=1810420355 instance=ExtResource("4_dw4x0")]
+unique_name_in_owner = true
+
+[node name="Background" parent="." unique_id=215312779 instance=ExtResource("5_xufhq")]
+unique_name_in_owner = true
+
+[node name="Ground" parent="." unique_id=1883532839 instance=ExtResource("6_pp4cp")]
+unique_name_in_owner = true
+position = Vector2(0, -20.575)
+
+[node name="Player" parent="." unique_id=1415728382 groups=["player"] instance=ExtResource("7_fqecq")]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(70.75, 387)
+scale = Vector2(5, 5)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1987980903]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="." unique_id=717819064]
+wait_time = 0.06
+one_shot = true
+
+[node name="Audio_Static" type="AudioStreamPlayer" parent="." unique_id=887394676]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("8_wdwou")
+bus = &"SFX"

@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	colour_buttons()
 
 func _on_shop_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Level/shop.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Screens/shop.tscn")
 
 func colour_buttons():
 	

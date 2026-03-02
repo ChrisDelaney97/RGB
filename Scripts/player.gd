@@ -4,6 +4,7 @@ const glitch_shader_red = preload("res://Art/Shaders/glitch_red.gdshader")
 const glitch_shader_green = preload("res://Art/Shaders/glitch_green.gdshader")
 const glitch_shader_blue = preload("res://Art/Shaders/glitch_blue.gdshader")
 
+@onready var death_sprite: Sprite2D = %DeathSprite
 @onready var anim: AnimatedSprite2D = %AnimatedSprite2D
 @onready var run_col: CollisionShape2D = $RunCol
 @onready var duck_col: CollisionShape2D = $DuckCol
@@ -102,3 +103,11 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			0: anim.play("jump1")
 			1: anim.play("jump2")
 			2: anim.play("jump3")
+
+func death_sprite_toggle():
+	if Global.game_over == true:
+		death_sprite.show()
+		anim.hide()
+	else:
+		death_sprite.hide()
+		anim.show()

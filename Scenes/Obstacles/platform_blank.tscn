@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://r1trpjrm4dft"]
+
+[sub_resource type="Gradient" id="Gradient_k8vjv"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mm2vv"]
+gradient = SubResource("Gradient_k8vjv")
+
+[node name="obst_blank" type="Node2D" unique_id=884365288]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=212065411]
+offset_right = 324.0
+offset_bottom = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=141877773]
+visible = false
+position = Vector2(162, 7.25)
+scale = Vector2(1.265625, 15.5)
+texture = SubResource("GradientTexture1D_mm2vv")

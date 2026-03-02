@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://ctvhwnlwa8adw"]
+
+[ext_resource type="Texture2D" uid="uid://bfk66cgbe2b7d" path="res://Art/80s_style/Palette_1/Screenshot 2026-03-02 114204.png" id="1_yovix"]
+[ext_resource type="Script" uid="uid://dy8duh4p41wq7" path="res://Scripts/palette_box.gd" id="2_pk35k"]
+[ext_resource type="Shader" uid="uid://drld6vv706en1" path="res://Art/Shaders/shadow.gdshader" id="3_gkkun"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4o62l"]
+shader = ExtResource("3_gkkun")
+shader_parameter/shadow_offset = Vector2(10, 4.825)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6vv2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6vv2"]
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.39215687)
+
+[node name="PaletteBox" type="TextureRect" unique_id=1180559814]
+offset_right = 136.0
+offset_bottom = 201.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_yovix")
+script = ExtResource("2_pk35k")
+
+[node name="Shadow" type="TextureRect" parent="." unique_id=839921203]
+z_index = -10
+material = SubResource("ShaderMaterial_4o62l")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="." unique_id=20406453]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d6vv2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6vv2")
+
+[node name="SoldOut" type="Label" parent="." unique_id=596367880]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.43633232
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 20
+text = "SOLD OUT"
+
+[node name="EquipContainer" type="MarginContainer" parent="." unique_id=52855482]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -53.0
+offset_right = 57.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Equip" type="Button" parent="EquipContainer" unique_id=110087379]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 15
+text = "EQUIP"
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EquipContainer/Equip" to="." method="_on_equip_pressed"]

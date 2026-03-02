@@ -14,6 +14,7 @@ const outline_shader : Shader = preload("res://Art/Shaders/outline.gdshader")
 func _ready() -> void:
 	Global.change_equipped_palette.connect(palette_equip_shader)
 	crt.show()
+	palette_equip_shader()
 
 func _process(delta: float) -> void:
 	coins.text = "COINS: " + str(Global.coins_total)
@@ -27,3 +28,6 @@ func palette_equip_shader():
 			palette_box.material = mat
 		else:
 			palette_box.material = null
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Screens/main.tscn")

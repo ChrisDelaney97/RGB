@@ -8,6 +8,7 @@ extends Node
 @onready var gameover: CanvasLayer = %gameover
 @onready var color_rect: ColorRect = %ColorRGB
 @onready var timer: Timer = $Timer
+@onready var crt: CanvasLayer = $CRT
 
 @onready var audio_static: AudioStreamPlayer = %Audio_Static
 
@@ -17,11 +18,11 @@ var blue = Color.from_rgba8(25, 115, 181, 40)
  
 var glitch_shader = preload("res://Art/Shaders/glitch_screen.gdshader")
 
-var obst_low = preload("res://Scenes/Objects/obst_low.tscn")
-var obst_high = preload("res://Scenes/Objects/obst_high.tscn")
-var wall = preload("res://Scenes/Objects/wall.tscn")
-var platform_blank = preload("res://Scenes/Objects/platform_blank.tscn")
-var platform = preload("res://Scenes/Objects/platform.tscn")
+var obst_high = preload("res://Scenes/Obstacles/obst_high.tscn")
+var obst_low = preload("res://Scenes/Obstacles/obst_low.tscn")
+var platform = preload("res://Scenes/Obstacles/platform.tscn")
+var platform_blank = preload("res://Scenes/Obstacles/platform_blank.tscn")
+var wall = preload("res://Scenes/Obstacles/wall.tscn")
 
 var obstacles : Array
 var platforms : Array
@@ -51,6 +52,7 @@ var rand_platform : int
 var intro_finished : bool = false
 
 func _ready() -> void:
+	crt.show()
 	rand_obst = randi_range(0,800)
 	rand_platform = randi_range(0,800)
 	player.change_collision_layer()
@@ -79,6 +81,7 @@ func new_game():
 	
 	ui_visibility(false)
 	gameover.hide()
+	player.death_sprite_toggle()
 
 func _process(_delta: float) -> void:
 	
@@ -157,7 +160,7 @@ func generate_platform():
 		if rand_height > 1: rand_height -= 1
 		var platform_scale = platform.get_node("Sprite2D").scale * rand_height
 		var platform_x : int = screen_size.x + score + 100 + rand_platform
-		var platform_y : int = screen_size.y - (-platform_height * platform_scale.y / 2) - ground_height - 30
+		var platform_y : int = screen_size.y - (-platform_height * platform_scale.y / 2) - ground_height - 180
 		last_platform = platform
 		platform.position = Vector2i(platform_x, platform_y)
 		add_child(platform)
@@ -189,6 +192,7 @@ func game_over():
 	get_tree().paused = true
 	Global.game_running = false
 	gameover.show()
+	player.death_sprite_toggle()
 	
 func change_colour(colour_index):
 	audio_static.pitch_scale = randf_range(1.18, 1.22)

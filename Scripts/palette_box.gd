@@ -11,7 +11,7 @@ extends Control
 @export var price : int
 @export var palette_index : int
 
-const outline_shader = preload("res://Art/Shaders/outline.gdshader")
+const shine_shader = preload("res://Art/Shaders/shine.gdshader")
 
 var purchased : bool
 var equipped : bool

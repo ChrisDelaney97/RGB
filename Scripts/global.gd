@@ -62,7 +62,7 @@ var current_palette : Palette
 	#"res://Art/80sstyle/Palette_6/floor_6.png",
 	#"res://Art/80sstyle/Palette_6/bg_6.png"]
 
-var palette1_purchased : bool
+var palette1_purchased : bool = true
 var palette2_purchased : bool
 var palette3_purchased : bool
 var palette4_purchased : bool
