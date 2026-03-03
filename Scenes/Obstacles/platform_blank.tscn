@@ -8,6 +8,7 @@ gradient = SubResource("Gradient_k8vjv")
 [node name="obst_blank" type="Node2D" unique_id=884365288]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=212065411]
+visible = false
 offset_right = 324.0
 offset_bottom = 15.0
 

@@ -153,18 +153,18 @@ func generate_obst():
 func generate_platform():
 	if platforms.is_empty() or last_platform.position.x < score + rand_platform:
 		var platform_type = platform_types[randi() % platform_types.size()]
-		var platform = platform_type.instantiate()
-		platform.scale.x = platform.scale.x * randi_range(1,3)
-		var platform_height = platform.get_node("Sprite2D").texture.get_height()
+		var plat = platform_type.instantiate()
+		plat.scale.x = plat.scale.x * randi_range(1,3)
+		var platform_height = plat.get_node("Sprite2D").texture.get_height()
 		var rand_height = randi_range(1,3)
 		if rand_height > 1: rand_height -= 1
-		var platform_scale = platform.get_node("Sprite2D").scale * rand_height
+		var platform_scale = plat.get_node("Sprite2D").scale * rand_height
 		var platform_x : int = screen_size.x + score + 100 + rand_platform
 		var platform_y : int = screen_size.y - (-platform_height * platform_scale.y / 2) - ground_height - 180
-		last_platform = platform
-		platform.position = Vector2i(platform_x, platform_y)
-		add_child(platform)
-		platforms.append(platform)
+		last_platform = plat
+		plat.position = Vector2i(platform_x, platform_y)
+		add_child(plat)
+		platforms.append(plat)
 		rand_platform = randi_range(0,800)
 
 func add_obst(obst, x, y):
